@@ -39,6 +39,13 @@ class Snake:
     
     def extend(self):
         self.add_body(self.snake_body[-1].position())
+
+    def reset(self):
+        for snake in self.snake_body:
+            snake.goto(1000, 1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.head = self.snake_body[0]
     
     def snake_set_heading(self, direction):
         if direction == "right" and self.direction != "left":
